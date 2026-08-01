@@ -1,0 +1,23 @@
+# RedotPay
+
+> RedotPay is a global stablecoin-based payment fintech that integrates blockchain with traditional banking and finance. Its developer surface is agentic: a first-party Rust CLI and a local MCP server / Agent Skill that let AI agents settle HTTP 402 "Payment Required" challenges over the Machine Payments Protocol (MPP), using OAuth2 device-flow login and per-payment idempotency against the production RedotPay API (https://apiv2.redotpay.com).
+
+## API
+- [RedotPay Agentic Payments API](https://github.com/redotpay/redotpay-cli): Production API (https://apiv2.redotpay.com) — OAuth2 device flow (RFC 8628) and the agentic MPP pay endpoint POST /api/v1/agentic/mpp/pay that resolves HTTP 402 / x402 payment challenges.
+
+## Authentication
+- OAuth2 Device Authorization Grant at https://app.rp-2023app.com (/api/v1/oauth/device_authorization, /api/v1/oauth/token); client_id `redotpay`; scope `mpp_charge`; then `Authorization: Bearer` requests.
+
+## Developer tools
+- [redotpay CLI](https://github.com/redotpay/redotpay-cli): Rust wallet + curl-style HTTP client with built-in 402 -> MPP pay -> retry. Install: curl -fsSL https://raw.githubusercontent.com/redotpay/redotpay-cli/main/install.sh | bash
+- [redotpay-payment MCP server / Agent Skill](https://github.com/redotpay/redotpay-payment-skill): Local MCP server + skill for Cursor, Claude Code, Claude Desktop, Windsurf, Codex, Cline. Tools: pay, start_authorization, wait_for_authorization, list_authorizations, revoke, recent_payments.
+
+## Conventions
+- Idempotency: X-Idempotency-Key on the agentic pay call.
+- Payments: HTTP 402 / x402 (X-x402-Accept, X-Payment-Resource-Url) settled via MPP (https://mpp.dev); MPP service registry at https://mpp.dev/api/services.
+
+## Docs
+- [Help Center](https://helpcenter.redotpay.com)
+- [Blog](https://blog.redotpay.com)
+- [GitHub](https://github.com/redotpay)
+- [Website](https://www.redotpay.com)

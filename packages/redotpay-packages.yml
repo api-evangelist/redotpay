@@ -1,0 +1,38 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/redotpay
+description: >-
+  First-party RedotPay client distributions. Both are published as binaries via GitHub Releases
+  (not on a language package registry such as npm/PyPI/crates.io) and installed through a first-party
+  install.sh one-liner. No third-party language SDK libraries were found.
+packages:
+- name: redotpay-cli
+  official: true
+  language: Rust
+  registry: github-releases
+  repository: https://github.com/redotpay/redotpay-cli
+  binary: redotpay
+  install: 'curl -fsSL "https://raw.githubusercontent.com/redotpay/redotpay-cli/main/install.sh" | bash'
+  version: 0.1.0
+  license: MIT OR Apache-2.0
+  description: >-
+    Local wallet and curl-style HTTP client with OAuth2 device login and built-in
+    HTTP 402 -> MPP (Machine Payments Protocol) agentic pay -> retry handling.
+- name: redotpay-payment
+  official: true
+  language: Rust
+  registry: github-releases
+  repository: https://github.com/redotpay/redotpay-payment-skill
+  binary: redotpay-payment
+  install: 'curl -fsSL https://raw.githubusercontent.com/redotpay/redotpay-payment-skill/main/install.sh | sh'
+  version: 0.1.0
+  description: >-
+    MCP server + Agent Skill that lets AI agents (Cursor, Claude Code, Claude Desktop, Windsurf,
+    Codex, Cline) settle MPP 402 payments on the user's behalf. Registers an MCP server named
+    redotpay-payment and installs the skill into agent host directories. Requires jq.
+  platforms:
+  - darwin_aarch64
+  - darwin_x86_64
+  - linux_x86_64
+  - linux_aarch64
+  - windows_x86_64

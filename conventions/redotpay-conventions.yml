@@ -1,0 +1,48 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/redotpay/redotpay-cli (src/api.rs, src/agentic_mpp.rs, src/x402.rs)
+description: >-
+  Cross-cutting runtime semantics of the RedotPay agentic payments API, derived from the first-party
+  redotpay CLI source. No public OpenAPI is published; these conventions are grounded in the wire
+  behavior implemented by the client.
+auth:
+  style: OAuth2 device flow (RFC 8628) + Bearer tokens
+  see: authentication/redotpay-authentication.yml
+idempotency:
+  supported: true
+  header: X-Idempotency-Key
+  scope: 'POST /api/v1/agentic/mpp/pay (402 retry)'
+  override_env: REDOTPAY_CLI_MPP_IDEMPOTENCY_KEY
+  cli_flag: '--idempotency-key'
+  notes: >-
+    An idempotency key can be supplied on the agentic MPP pay call so a retried 402 settlement does not
+    double-charge.
+payment_402:
+  model: HTTP 402 Payment Required -> Machine Payments Protocol (MPP)
+  spec: https://mpp.dev
+  flow: >-
+    On a 402 with a payment WWW-Authenticate challenge, the client POSTs to /api/v1/agentic/mpp/pay with
+    the raw WWW-Authenticate value and a payment resource URL, receives a credentialAuthorization, then
+    retries the original request with `Authorization: Payment`.
+  headers:
+    accept: X-x402-Accept
+    payment_resource_url: X-Payment-Resource-Url
+    idempotency: X-Idempotency-Key
+  x402: true
+  service_registry: https://mpp.dev/api/services
+serialization:
+  request_body: JSON (camelCase keys)
+  error_envelope: '{ code, msg, data } — code=200 indicates success on the pay call'
+error_envelope:
+  shape: 'code/msg/data JSON object (not RFC 9457 problem+json)'
+tracing:
+  payment_resource_url_header: X-Payment-Resource-Url
+security_logging:
+  note: >-
+    Verbose CLI logs redact secrets (Authorization, tokens, payment credentials) unless
+    REDOTPAY_CLI_LOCAL_DEV is set.
+cross_reference:
+  authentication: authentication/redotpay-authentication.yml
+  scopes: scopes/redotpay-scopes.yml
+  conformance: conformance/redotpay-conformance.yml
+  lifecycle: lifecycle/redotpay-lifecycle.yml

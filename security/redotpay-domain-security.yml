@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.redotpay.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 30 07:08:09 2026 GMT
+  hsts: null
+- host: apiv2.redotpay.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 30 07:08:09 2026 GMT
+  hsts: null
+domains:
+- domain: redotpay.com
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject

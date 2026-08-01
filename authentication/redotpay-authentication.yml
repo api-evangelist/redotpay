@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/redotpay/redotpay-cli (src/auth.rs, config.example.toml, src/config.rs)
+description: >-
+  RedotPay authenticates clients with the OAuth2 Device Authorization Grant (RFC 8628), then makes
+  Bearer-token HTTP requests to the production API. Derived from the first-party redotpay CLI source;
+  no public OpenAPI or hosted auth docs page is published.
+schemes:
+- type: oauth2
+  flow: device_authorization
+  grant_type: urn:ietf:params:oauth:grant-type:device_code
+  authorization_base: https://app.rp-2023app.com
+  device_authorization_endpoint: /api/v1/oauth/device_authorization
+  token_endpoint: /api/v1/oauth/token
+  client_id: redotpay
+  scopes:
+  - mpp_charge
+  notes: >-
+    Device flow: client requests device_authorization, user approves in the RedotPay App (QR / user_code),
+    client polls the token endpoint. Optional merchant id (`mid`) may be sent on device_authorization.
+    Tokens are stored in the OS credential store by default.
+- type: http
+  scheme: bearer
+  description: >-
+    After device login, API requests carry `Authorization: Bearer <access_token>`. The agentic MPP pay
+    endpoint additionally accepts an `Authorization: Payment` credential returned by the pay flow.
+token_storage: OS credential store (Keychain / Windows Credential Manager / Linux Secret Service); file fallback via REDOTPAY_CLI_OAUTH_STORE=file

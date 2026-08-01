@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/redotpay/redotpay-payment-skill
+name: redotpay-payment
+status: available
+transport: stdio
+hosting: local
+official: true
+description: >-
+  First-party local MCP server (redotpay-payment) that lets AI agents settle MPP HTTP 402 payments on
+  the user's behalf. Installed via the redotpay-payment-skill install.sh, which registers the MCP server
+  into agent hosts (Cursor ~/.cursor/mcp.json, Claude Code ~/.claude.json, Claude Desktop, Windsurf
+  ~/.codeium/windsurf/mcp_config.json, Codex, Cline). Not a hosted/remote server; runs as a local binary
+  over stdio JSON-RPC. Production API target: https://apiv2.redotpay.com.
+install: 'curl -fsSL https://raw.githubusercontent.com/redotpay/redotpay-payment-skill/main/install.sh | sh'
+requires:
+- jq
+tools:
+- name: pay
+  description: Access an MPP resource, handle 402, and settle payment on the user's behalf.
+- name: start_authorization
+  description: Begin device authorization; returns a QR image + polling_token.
+- name: wait_for_authorization
+  description: Poll until the user confirms in the RedotPay App or times out.
+- name: list_authorizations
+  description: List current payment authorizations.
+- name: revoke
+  description: Revoke a payment authorization.
+- name: recent_payments
+  description: Show local payment history.
+- name: device_logout
+  description: Log out this device locally.
+- name: show_image
+  description: Display an image (non-payment helper).
+- name: inline_png
+  description: Inline a saved PNG (non-payment helper).
+- name: check_for_updates
+  description: Check for a newer version.
+- name: self_update
+  description: Upgrade the binary in place.

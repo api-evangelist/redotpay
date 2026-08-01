@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: derived
+source: https://github.com/redotpay/redotpay-cli (src/auth.rs, src/api.rs, src/agentic_mpp.rs, src/x402.rs)
+description: >-
+  Standards conformance asserted from the first-party redotpay CLI implementation. Each entry records
+  whether the surface conforms and the evidence observed in client source. No public OpenAPI or
+  certification page is published.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    OAuth2 Device Authorization Grant (RFC 8628); grant_type
+    urn:ietf:params:oauth:grant-type:device_code with device_authorization + token endpoints under
+    /api/v1/oauth on app.rp-2023app.com.
+- id: oauth2-device-flow-rfc8628
+  conforms: true
+  evidence: Device authorization + polling token flow implemented in src/auth.rs.
+- id: x402
+  conforms: true
+  evidence: >-
+    HTTP 402 Payment Required handling with X-x402-Accept header and x402 envelope parsing (src/x402.rs,
+    src/api.rs).
+- id: mpp
+  conforms: true
+  evidence: >-
+    Machine Payments Protocol (mpp.dev) agentic settlement via POST /api/v1/agentic/mpp/pay and the
+    mpp.dev/api/services registry (src/agentic_mpp.rs, src/mpp_services.rs).
+- id: idempotency
+  conforms: true
+  evidence: X-Idempotency-Key supported on the agentic pay call.
+- id: rfc9457
+  conforms: false
+  evidence: Errors use a code/msg/data JSON envelope, not application/problem+json.
+- id: oidc
+  conforms: false
+  evidence: No OpenID Connect discovery or id_token usage observed; OAuth2 only.

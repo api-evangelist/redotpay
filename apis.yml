@@ -1,8 +1,13 @@
 aid: redotpay
 name: Redotpay
-description: Redotpay is a company surfaced as a portfolio company of lightspeed-venture-partners and
-  added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  RedotPay is a global stablecoin-based payment fintech that integrates blockchain solutions with
+  traditional banking and finance infrastructures. The platform lets millions of people spend and send
+  digital assets through a crypto-backed Visa card, a multi-currency wallet, P2P trading, international
+  transfers, and stablecoin earning. Its developer-facing surface is agentic: a first-party Rust CLI
+  (redotpay) and a local MCP server / Agent Skill (redotpay-payment) that let AI agents settle HTTP 402
+  "Payment Required" challenges over the Machine Payments Protocol (MPP), using OAuth2 device-flow login
+  and per-payment idempotency against the production RedotPay API.
 url: https://raw.githubusercontent.com/api-evangelist/redotpay/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,14 +15,115 @@ x-backed-by:
 - lightspeed-venture-partners
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+image: https://www.redotpay.com/logo.svg
 tags:
 - Company
-apis: []
+- Payments
+- Fintech
+- Stablecoin
+- Cryptocurrency
+- Wallet
+- Agentic Payments
+- Machine Payments Protocol
+- x402
+- OAuth
+apis:
+- name: RedotPay Agentic Payments API
+  description: >-
+    Production RedotPay HTTP API surface behind the redotpay CLI and the redotpay-payment MCP server.
+    Provides OAuth2 device-flow authentication and the agentic Machine Payments Protocol (MPP) endpoint
+    that resolves HTTP 402 / x402 payment challenges and settles them with a payment credential, then
+    retries the original request.
+  humanURL: https://github.com/redotpay/redotpay-cli
+  baseURL: https://apiv2.redotpay.com
+  tags:
+  - Payments
+  - Agentic Payments
+  - MPP
+  - x402
+  - OAuth
+  properties:
+  - type: Authentication
+    url: authentication/redotpay-authentication.yml
+  - type: OAuthScopes
+    url: scopes/redotpay-scopes.yml
+  - type: Conventions
+    url: conventions/redotpay-conventions.yml
+  - type: Idempotency
+    url: conventions/redotpay-conventions.yml
+  - type: Conformance
+    url: conformance/redotpay-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/redotpay-lifecycle.yml
+  - type: MCPServer
+    url: mcp/redotpay-mcp.yml
+  - type: CLI
+    url: cli/redotpay-cli.yml
+  - type: AgentSkill
+    url: skills/redotpay-payment.md
+common:
+- type: DomainSecurity
+  url: security/redotpay-domain-security.yml
+- type: Website
+  url: https://www.redotpay.com
+- type: Documentation
+  url: https://github.com/redotpay/redotpay-cli
+- type: HelpCenter
+  url: https://helpcenter.redotpay.com
+- type: Support
+  url: https://helpcenter.redotpay.com
+- type: Blog
+  url: https://blog.redotpay.com
+- type: GitHubOrganization
+  url: https://github.com/redotpay
+- type: SignUp
+  url: https://www.redotpay.com
+- type: Packages
+  url: packages/redotpay-packages.yml
+- type: CLI
+  url: cli/redotpay-cli.yml
+- type: MCPServer
+  url: mcp/redotpay-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Authentication
+  url: authentication/redotpay-authentication.yml
+- type: OAuthScopes
+  url: scopes/redotpay-scopes.yml
+- type: Conventions
+  url: conventions/redotpay-conventions.yml
+- type: Idempotency
+  url: conventions/redotpay-conventions.yml
+- type: Conformance
+  url: conformance/redotpay-conformance.yml
+- type: Lifecycle
+  url: lifecycle/redotpay-lifecycle.yml
+- type: LLMsTxt
+  url: llms/redotpay-llms.txt
+- type: WellKnown
+  url: well-known/redotpay-well-known.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 13
+  pass: local-v1

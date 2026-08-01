@@ -1,0 +1,13 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/redotpay/redotpay-cli (config.example.toml, SKILL.md CLI appendix)
+description: >-
+  OAuth2 scopes used by RedotPay agentic payments. Derived from the first-party redotpay CLI /
+  redotpay-payment configuration and skill (no public OpenAPI or scopes reference page is published).
+oauth_flow: device_authorization
+scopes:
+- name: mpp_charge
+  description: >-
+    Authorize the client/agent to settle Machine Payments Protocol (MPP) charges on the user's behalf
+    (e.g. `redotpay-payment auth start --scope mpp_charge`). Grants the ability to obtain a payment
+    credential and complete 402 payments.

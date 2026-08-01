@@ -1,0 +1,23 @@
+generated: '2026-07-21'
+method: derived
+source: https://github.com/redotpay/redotpay-cli ; https://helpcenter.redotpay.com
+description: >-
+  Versioning and lifecycle signals for the RedotPay API, derived from host/path conventions in the
+  first-party CLI. No public deprecation policy, SLA, or status page was found (status.redotpay.com did
+  not resolve).
+versioning:
+  style: URI path + host
+  api_host: https://apiv2.redotpay.com
+  path_version: /api/v1
+  notes: >-
+    Production host is versioned (apiv2) and endpoints are namespaced under /api/v1 (e.g.
+    /api/v1/oauth/token, /api/v1/agentic/mpp/pay).
+deprecation:
+  policy_published: false
+  sunset_header: unknown
+status_page:
+  found: false
+  probed: https://status.redotpay.com (did not resolve)
+sla:
+  published: false
+support: https://helpcenter.redotpay.com

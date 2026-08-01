@@ -1,0 +1,38 @@
+generated: '2026-07-21'
+method: probed
+source: live HTTP probe 2026-07-21
+description: >-
+  Probed standard .well-known and discovery paths on the RedotPay website and API hosts. None returned
+  200; absence is valid, recorded data. No file was saved.
+hosts_probed:
+- https://www.redotpay.com
+- https://apiv2.redotpay.com
+probes:
+- path: /.well-known/security.txt
+  host: www.redotpay.com
+  status: 404
+  file: null
+- path: /.well-known/openid-configuration
+  host: www.redotpay.com
+  status: 404
+  file: null
+- path: /.well-known/oauth-authorization-server
+  host: www.redotpay.com
+  status: 404
+  file: null
+- path: /.well-known/api-catalog
+  host: www.redotpay.com
+  status: 404
+  file: null
+- path: /.well-known/ai-plugin.json
+  host: www.redotpay.com
+  status: 404
+  file: null
+- path: /.well-known/security.txt
+  host: api.redotpay.com
+  status: 404
+  file: null
+- path: /.well-known/openid-configuration
+  host: api.redotpay.com
+  status: 404
+  file: null

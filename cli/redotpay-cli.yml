@@ -1,0 +1,41 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/redotpay/redotpay-cli
+name: redotpay
+description: >-
+  RedotPay CLI is a local wallet and curl-style HTTP client in one Rust binary. It performs OAuth2
+  device-flow login, makes Bearer HTTP requests, and transparently handles HTTP 402 responses by
+  calling the agentic MPP pay endpoint and retrying the original request.
+repository: https://github.com/redotpay/redotpay-cli
+language: Rust
+version: 0.1.0
+license: MIT OR Apache-2.0
+binary: redotpay
+install:
+- method: install-script
+  command: './scripts/install.sh'
+- method: remote-one-liner
+  command: 'curl -fsSL "https://raw.githubusercontent.com/redotpay/redotpay-cli/main/install.sh" | bash'
+config:
+  file: ~/.redotpay/config.toml
+  env_prefix: REDOTPAY_CLI_
+  oauth_store: OS credential store (Keychain / Windows Credential Manager / Linux Secret Service)
+commands:
+- name: wallet login
+  description: OAuth2 device flow login; emits JSON with QR PNG path + user_code (use --human for legacy output).
+- name: wallet logout
+  description: Remove stored OAuth token.
+- name: wallet whoami
+  description: Show OAuth session / readiness (local only, no remote call).
+- name: wallet services
+  description: Browse the MPP service directory (list/detail); supports --search.
+- name: request
+  description: HTTP request with curl-like flags; handles 402 via Tempo or RedotPay payment methods (402 -> agentic mpp/pay -> retry).
+- name: guide
+  description: Show concise command usage and behavior notes.
+- name: info
+  description: Show deviceSn, deviceName, REDOTPAY_CLI_* env vars, and resolved OAuth settings.
+key_flows:
+- 'Login: redotpay wallet login  (device flow; approve in RedotPay App)'
+- 'Discover: redotpay wallet services --search ai'
+- 'Paid call: redotpay request "https://your-paid-resource.example/endpoint"  (402 -> MPP pay -> retry)'

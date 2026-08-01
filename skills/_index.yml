@@ -1,0 +1,22 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/redotpay/redotpay-payment-skill
+description: >-
+  First-party RedotPay Agent Skills, saved verbatim from the redotpay-payment-skill repository.
+skills:
+- name: redotpay-payment
+  file: redotpay-payment.md
+  official: true
+  api: RedotPay Agentic Payments API
+  description: >-
+    Installed redotpay-payment MCP skill for agent-driven MPP 402 settlement: default to pay first,
+    fall back to start_authorization + QR scan + wait_for_authorization only when re-authorization is
+    required. Targets MCP-capable agents (Cursor, Claude Code, Claude Desktop, Windsurf, Codex, Cline).
+  tools:
+  - pay
+  - start_authorization
+  - wait_for_authorization
+  - list_authorizations
+  - revoke
+  - recent_payments
+  - device_logout
