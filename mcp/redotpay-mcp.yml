@@ -2,7 +2,8 @@ generated: '2026-07-21'
 method: searched
 source: https://github.com/redotpay/redotpay-payment-skill
 name: redotpay-payment
-status: available
+status: published
+status_raw: available
 transport: stdio
 hosting: local
 official: true
