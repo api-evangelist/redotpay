@@ -5,7 +5,7 @@
       "source": "https://helpcenter.redotpay.com/feed.xml",
       "feed_url": "https://helpcenter.redotpay.com/feed.xml",
       "title": "",
-      "saved": 0,
+      "saved": 2,
       "method": "feed"
     },
     {
@@ -16,6 +16,6 @@
       "method": "discovered"
     }
   ],
-  "post_count": 50,
-  "fetched": "2026-08-06T14:08:46Z"
+  "post_count": 52,
+  "fetched": "2026-08-15T12:11:08Z"
 }
