@@ -7,13 +7,13 @@ status_raw: available
 transport: stdio
 hosting: local
 official: true
-description: >-
-  First-party local MCP server (redotpay-payment) that lets AI agents settle MPP HTTP 402 payments on
-  the user's behalf. Installed via the redotpay-payment-skill install.sh, which registers the MCP server
-  into agent hosts (Cursor ~/.cursor/mcp.json, Claude Code ~/.claude.json, Claude Desktop, Windsurf
-  ~/.codeium/windsurf/mcp_config.json, Codex, Cline). Not a hosted/remote server; runs as a local binary
-  over stdio JSON-RPC. Production API target: https://apiv2.redotpay.com.
-install: 'curl -fsSL https://raw.githubusercontent.com/redotpay/redotpay-payment-skill/main/install.sh | sh'
+description: 'First-party local MCP server (redotpay-payment) that lets AI agents settle MPP HTTP 402
+  payments on the user''s behalf. Installed via the redotpay-payment-skill install.sh, which registers
+  the MCP server into agent hosts (Cursor ~/.cursor/mcp.json, Claude Code ~/.claude.json, Claude Desktop,
+  Windsurf ~/.codeium/windsurf/mcp_config.json, Codex, Cline). Not a hosted/remote server; runs as a local
+  binary over stdio JSON-RPC. Production API target: https://apiv2.redotpay.com.'
+install: curl -fsSL https://raw.githubusercontent.com/redotpay/redotpay-payment-skill/main/install.sh
+  | sh
 requires:
 - jq
 tools:
@@ -39,3 +39,10 @@ tools:
   description: Check for a newer version.
 - name: self_update
   description: Upgrade the binary in place.
+deployment:
+  mode: remote
+  endpoint: https://raw.githubusercontent.com/redotpay/redotpay-payment-skill/main/install.sh
+  verified: probed
+  probe: wall
+  checked: '2026-08-12'
+  source: catalog MCP census
