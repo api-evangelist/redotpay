@@ -35,6 +35,17 @@ tags:
 - Company
 - Payments
 - Fintech
+- Stablecoins
+- Cryptocurrency
+- Wallets
+- Agentic Payments
+- Machine Payments Protocol
+- x402
+- Authentication
+tags_raw:
+- Company
+- Payments
+- Fintech
 - Stablecoin
 - Cryptocurrency
 - Wallet
@@ -52,6 +63,12 @@ apis:
   humanURL: https://github.com/redotpay/redotpay-cli
   baseURL: https://apiv2.redotpay.com
   tags:
+  - Payments
+  - Agentic Payments
+  - MPP
+  - x402
+  - Authentication
+  tags_raw:
   - Payments
   - Agentic Payments
   - MPP
