@@ -64,6 +64,103 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Redotpay is a company surfaced as a portfolio company of lightspeed-venture-partners and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+RedotPay is a global stablecoin-based payment fintech that integrates blockchain solutions with traditional banking and finance infrastructures. The platform lets millions of people spend and send digital assets through a crypto-backed Visa card, a multi-currency wallet, P2P trading, international transfers, and stablecoin earning. Its developer-facing surface is agentic: a first-party Rust CLI (redotpay) and a local MCP server / Agent Skill (redotpay-payment) that let AI agents settle HTTP 402 "Payment Required" challenges over the Machine Payments Protocol (MPP), using OAuth2 device-flow login and per-payment idempotency against the production RedotPay API.
 
-Backed by: lightspeed-venture-partners
+**Areas:** Company · Payments · Fintech · Stablecoins · Cryptocurrency · Wallets · Agentic Payments · Machine Payments Protocol · x402 · Authentication
+
+## Redotpay on APIs.io
+
+Everything profiled for Redotpay is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/redotpay/](https://apis.io/providers/redotpay/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [RedotPay Agentic Payments API](https://apis.io/apis/redotpay/redotpay-agentic-payments-api/) — Production RedotPay HTTP API surface behind the redotpay CLI and the redotpay-payment MCP server. Provides OAuth2 device-flow authentication and the agentic…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [redotpay-payment](https://apis.io/servers/redotpay/redotpay-payment/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Redotpay Authentication](https://apis.io/security/redotpay/redotpay-authentication/)
+- [Redotpay Domain Security](https://apis.io/security/redotpay/redotpay-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Redotpay Scopes](https://apis.io/scopes/redotpay/redotpay-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.redotpay.com)
+- [Documentation](https://github.com/redotpay/redotpay-cli)
+- [Sign up](https://www.redotpay.com)
+- [Support](https://helpcenter.redotpay.com)
+- [Blog](https://blog.redotpay.com)
+- [GitHub](https://github.com/redotpay)
+
+## API Evangelist rating
+
+**Kin Score 18.4** — emerging · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 0.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 33.3 |
+| Access clarity | 13.2 |
+
+**Agent readiness 12.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | documented (partial credit) |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 24.1** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/redotpay/](https://apis.io/providers/redotpay/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Redotpay: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/redotpay/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
